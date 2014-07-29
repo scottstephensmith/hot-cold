@@ -49,7 +49,7 @@ $(document).ready(function(){
     console.log("User guessed " + newGuess);
     
     if (isNaN(newGuess) || newGuess % 1 !== 0) {
-      writeFeedback("Invalid number, must be positive integer.");
+      writeFeedback("What!? That's not a number.");
     } else if(newGuess > 100 || newGuess < 0){
       writeFeedback("The number has to be between 0 and 100!");
     } else if(newGuess === '') {
