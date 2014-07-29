@@ -43,7 +43,7 @@ $(document).ready(function(){
     newGame();
   });
   
-  /*--- guessing --*/
+  /*--- guessing and returning feedback ---*/
   $("#guessButton").click(function(){
     newGuess = $('input').val();
     console.log("User guessed " + newGuess);
@@ -59,6 +59,7 @@ $(document).ready(function(){
         listGuess();
         checkGuess = (Math.abs(newGuess - number));
         if (checkGuess === 0) {
+          console.log("User won!")
           writeFeedback("You win!");
         } else if (checkGuess <= 5) {
           writeFeedback("Oh so hot!");
@@ -76,7 +77,7 @@ $(document).ready(function(){
     return false;
   });
 	
-	function writeFeedback (feedback) {
+  function writeFeedback (feedback) {
     $('#feedback').text(feedback);
   }
   function trackGuess () {
