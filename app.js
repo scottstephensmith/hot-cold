@@ -28,8 +28,7 @@ $(document).ready(function(){
   newGame = function(){
     console.log("New game started!")
     guessCount = 0
-    $("#guesslist").contents().remove();
-    $("#count, #feedback").contents().remove();
+    $("#count, #feedback, #guessList").contents().remove();
     $("#count").append(guessCount);
     $("#feedback").append('Make your guess!');
     $("userGuess").val('')
