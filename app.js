@@ -64,7 +64,7 @@ $(document).ready(function(){
         } else if (checkGuess <= 5) {
           writeFeedback("Oh so hot!");
         } else if (checkGuess <= 10) {
-          writeFeedback("Getting hotter!");
+          writeFeedback("Definitely warm.");
         } else if (checkGuess <= 20) {
           writeFeedback("Warm, sort of.");
         } else if (checkGuess <= 30) {
