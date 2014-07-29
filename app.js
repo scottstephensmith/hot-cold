@@ -57,7 +57,7 @@ $(document).ready(function(){
     } else {
         trackGuess();
         listGuess();
-        checkGuess = (Math.abs(newGuess - randomNumber));
+        checkGuess = (Math.abs(newGuess - number));
         if (checkGuess === 0) {
           writeFeedback("You win!");
         } else if (checkGuess <= 5) {
