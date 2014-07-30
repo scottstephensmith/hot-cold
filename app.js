@@ -71,10 +71,11 @@ $(document).ready(function(){
         } else {
           writeFeedback("Freezing! Not even close...");
         }
-    $('#userGuess').val('');
-    return false;    
+      $('#userGuess').val('');
+      return false;    
     }
-
+    $('#userGuess').val('');
+    return false;
   });
 	
   function writeFeedback (feedback) {
