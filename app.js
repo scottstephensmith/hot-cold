@@ -28,8 +28,7 @@ $(document).ready(function(){
   newGame = function(){
     console.log("New game started!")
     guessCount = 0
-    $("#guesslist").contents().remove();
-    $("#count, #feedback").contents().remove();
+    $("#count, #feedback, #guessList").contents().remove();
     $("#count").append(guessCount);
     $("#feedback").append('Make your guess!');
     $("userGuess").val('')
@@ -43,13 +42,13 @@ $(document).ready(function(){
     newGame();
   });
   
-  /*--- guessing --*/
+  /*--- guessing and returning feedback ---*/
   $("#guessButton").click(function(){
     newGuess = $('input').val();
     console.log("User guessed " + newGuess);
     
     if (isNaN(newGuess) || newGuess % 1 !== 0) {
-      writeFeedback("Invalid number, must be positive integer.");
+      writeFeedback("What!? That's not a number.");
     } else if(newGuess > 100 || newGuess < 0){
       writeFeedback("The number has to be between 0 and 100!");
     } else if(newGuess === '') {
@@ -57,13 +56,14 @@ $(document).ready(function(){
     } else {
         trackGuess();
         listGuess();
-        checkGuess = (Math.abs(newGuess - randomNumber));
+        checkGuess = (Math.abs(newGuess - number));
         if (checkGuess === 0) {
+          console.log("User won!")
           writeFeedback("You win!");
         } else if (checkGuess <= 5) {
           writeFeedback("Oh so hot!");
         } else if (checkGuess <= 10) {
-          writeFeedback("Getting hotter!");
+          writeFeedback("Definitely warm.");
         } else if (checkGuess <= 20) {
           writeFeedback("Warm, sort of.");
         } else if (checkGuess <= 30) {
@@ -71,12 +71,13 @@ $(document).ready(function(){
         } else {
           writeFeedback("Freezing! Not even close...");
         }
-    }
     $('#userGuess').val('');
-    return false;
+    return false;    
+    }
+
   });
 	
-	function writeFeedback (feedback) {
+  function writeFeedback (feedback) {
     $('#feedback').text(feedback);
   }
   function trackGuess () {
